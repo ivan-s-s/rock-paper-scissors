@@ -3,66 +3,81 @@ let wins = 0;
 let los = 0;
 let game_draw = 0;
 
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorsBtn = document.querySelector('.scissors');
+
+const playerScore = document.querySelector('.player_score');
+const computerScore = document.querySelector('.computer_score');
+
+playerScore.innerHTML = `Player: ${wins}`;
+computerScore.innerHTML = `Computer: ${los}`;
+
+
+/* Start */
+
+const startBtn = document.querySelector('.container_start');
+const overlay = document.querySelector('.overlay_bg');
+const audio = document.querySelector('audio')
+startBtn.addEventListener('click', () => {
+    startBtn.classList.add('active');
+    overlay.classList.add('active');
+    audio.play()
+})
+
 function getComputerChoice() {
     let arr = ['rock', 'paper', 'scissors']
     let random = Math.floor(Math.random() * (arr.length))
     return arr[random]
 }
 
-function getPlayerChoice() {
-    let playerChoice;
-    while (playerChoice !== 'rock' || playerChoice !== 'paper' || playerChoice !== 'scissors') {
-        playerChoice = prompt('Choose: rock, paper, scissors').toLowerCase();
-        if (playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
-            break
-        }
-    }
-    return playerChoice;
-}
+const arr = [rockBtn, paperBtn, scissorsBtn];
+arr.forEach((button) => {
+    button.addEventListener('click', () => {
+        game(button.value);
+        audio.play();
+    })
+})
+
 
 function playRound(player, computer) {
+    round += 1;
     if (player == computer) {
         game_draw += 1;
-        return alert(`Player: ${player} \nComputer: ${computer} \nGame Draw`);
     } else if (player === 'rock' && computer === 'scissors' || player === 'scissors' && computer === 'paper' || player === 'paper' && computer === 'rock') {
         wins += 1;
-        return alert(`Player: ${player} \nComputer: ${computer} \nYou Win! ${player[0].toUpperCase() + player.slice(1)} beats ${computer[0].toUpperCase() + computer.slice(1)}`);
     } else {
         los += 1;
-        return alert(`Player: ${player} \nComputer: ${computer} \nYou Lose! ${player[0].toUpperCase() + player.slice(1)} beats ${computer[0].toUpperCase() + computer.slice(1)}`)
+    }
+}
+
+function getIcon(pic) {
+    switch (pic) {
+        case 'rock':
+            return 'rock'
+        case 'paper':
+            return '<i class="fa-solid fa-hand"></i>'
+        case 'scissors':
+            return '<i class="fa-solid fa-hand-peace"></i>'
     }
 }
 
 
+function game(playerChoice) {
+    const computerShow = document.querySelector('computer_choice');
+    const computerSelection = getComputerChoice();
 
-function game(rounds) {
-    for (let i = 0; i < rounds; i++) {
-        round += 1;
-        const computerSelection = getComputerChoice();
-        const playerSelection = getPlayerChoice()
-        playRound(playerSelection, computerSelection)
-        console.clear()
-        console.log(`Round: %c${round} of ${rounds}`, 'background-color: lightblue;font-size:18px;')
-        console.log(`Wins: %c${wins}`, 'background-color: lightgreen;font-size:18px;')
-        console.log(`Game Draw: %c${game_draw}`, 'background-color: lightgray;font-size:18px;')
-        showBoxOfResults()
-    }
+    playRound(playerChoice, computerSelection)
+
+    computerShow.innerHTML = getIcon(computerSelection);
+    console.clear()
+    console.log(`Round: %c${round}`, 'background-color: lightblue;font-size:18px;')
+    console.log(`Wins: %c${wins}`, 'background-color: lightgreen;font-size:18px;')
+    console.log(`Game Draw: %c${game_draw}`, 'background-color: lightgray;font-size:18px;')
+    console.log(los)
 }
 
-const getNumerOfRounds = parseInt(prompt('Choose amount of rounds you want to play...'))
-game(getNumerOfRounds);
-
-
-function showBoxOfResults() {
-    let numberOfRounds = document.getElementById('rounds_container');
-    numberOfRounds.innerText = `${round}`;
-
-    let playerWins = document.getElementById('playerWins_container')
-    playerWins.innerText = `${wins}`;
-
-    let computerWins = document.getElementById('computerWins_container')
-    computerWins.innerText = `${los}`;
-
-    let gameDraw = document.getElementById('gameDraw_container')
-    gameDraw.innerText = `${game_draw}`;
+function render() {
+    document.querySelector('.player_score').innerHTML = 'Player: 0';
+    document.querySelector('.computer_score').innerHTML = 'Computer: 0';
 }

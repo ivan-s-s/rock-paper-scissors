@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+:root {
+    --font-family-main: 'Silkscreen', cursive;
+    --dark-color: #0c0c0d;
+    --second-bg: #3f3d47;
+    --main-bg: #fad0d0;
+    --first-text-colot: #cdb27b;
+    --white-color: #ffffff;
+    --border-color: #384061;
+    --bg-hover-color: #fcfbd7;
+    --active-color: #3b6138;
+    --overlay-color: #b9483e;
+}
 
 *,
 *::before,
@@ -8,50 +21,186 @@
     box-sizing: border-box;
 }
 
+html {
+    position: relative;
+    min-height: 100dvh;
+    font-family: var(--font-family-main);
+    color: var(--first-text-colot);
+}
+
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: var(--first-text-colot);
+}
+
 body {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    background-color: #58ee96;
-}
-
-.game_container {
+    min-height: 100dvh;
+    background-color: var(--main-bg);
     display: flex;
     flex-direction: column;
+}
+
+header,
+footer {
+    z-index: 2;
+    height: 10rem;
+    background-color: var(--second-bg);
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 40px 50px;
-    margin-top: 50px;
-    width: 500px;
-    border: 3px solid black;
+    border-bottom: 7px solid var(--dark-color);
+    border-top: 7px solid var(--dark-color);
 }
 
-.title {
-    font-size: 24px;
-    margin-bottom: 20px;
+h1 {
+    font-size: 4em;
 }
 
-h2 {
-    margin-bottom: 20px;
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.container {
-    padding: 5px 20px;
+
+
+.container_game {
+    display: flex;
+    flex: 1;
+    width: 800px;
+    margin: auto;
+    flex-direction: column;
+}
+
+.rounds {
+    text-align: center;
+    font-size: 36px;
+    padding: 10px;
+    color: var(--dark-color);
+}
+
+.game_display {
+    display: flex;
+    justify-content: center;
     width: 100%;
 }
 
-.box {
+.player,
+.computer {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 20px;
 }
 
-#rounds_container,
-#playerWins_container,
-#computerWins_container,
-#gameDraw_container {
-    font-weight: bold;
+.player_card,
+.computer_card {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.player_score,
+.computer_score {
+    font-size: 18px;
+    text-align: center;
+    color: var(--second-bg);
+}
+
+.player_choice,
+.computer_choice {
+    color: var(--dark-color);
+}
+
+
+.game_pannel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.game_button {
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--dark-color);
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 50px;
+    color: var(--dark-color);
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.big {
+    font-size: 100px;
+    color: var(--dark-color);
+    background-color: var(--white-color);
+    border: 3px solid var(--dark-color);
+    border-radius: 15px;
+}
+
+.game_button:hover {
+    border: 3px solid var(--border-color);
+    background-color: var(--bg-hover-color);
+    color: var(--border-color);
+}
+
+.game_button:active {
+    border: 3px solid var(--active-color);
+    color: var(--active-color);
+}
+
+footer {
     font-size: 24px;
-    color: darkgreen;
+}
+
+.container_start {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 7px solid var(--dark-color);
+    background-color: var(--overlay-color);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    /* box-shadow: 4px 4px 74px 0px rgba(225, 225, 225, 0.4); */
+    box-shadow: -15px 14px 0px 0px #f0f0f0;
+}
+
+.overlay_bg {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    opacity: 0.5;
+}
+
+.overlay_bg.active,
+.container_start.active {
+    display: none;
+}
+
+.start {
+    padding: 12px 40px;
+    border: 7px solid var(--first-text-colot);
+    border-radius: 15px;
+    font-size: 36px;
+    font-family: var(--font-family-main);
 }

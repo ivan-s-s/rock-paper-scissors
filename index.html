@@ -7,33 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reck Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://kit.fontawesome.com/14eb71cf09.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="game_container">
-        <div class="title">"Rock Paper Scissors"</div>
-        <h2>Results</h2>
-        <div class="container">
-            <div class="box">
-                <div class="results">Number of Rounds:</div>
-                <div id="rounds_container"></div>
+
+    <header>
+        <h1>Rock, Paper, Scissors</h1>
+    </header>
+
+    <main>
+
+        <div class="container_game">
+            <div class="rounds">ROUND </div>
+            <div class="game_display">
+
+                <div class="player">
+                    <div class="player_card">
+                        <div class="box big"><i class="fa-regular fa-user"></i></i></div>
+                        <div class="player_score"></div>
+                    </div>
+                    <div class="box player_choice"><i class="fa-solid fa-question"></i></div>
+                </div>
+
+                <div class="computer">
+                    <div class="box computer_choice"><i class="fa-solid fa-question"></i></div>
+                    <div class="computer_card">
+                        <div class="box big"><i class="fa-solid fa-robot"></i></i></div>
+                        <div class="computer_score"></div>
+                    </div>
+
+                </div>
             </div>
-            <div class="box">
-                <div class="results">Player Wins:</div>
-                <div id="playerWins_container"></div>
-            </div>
-            <div class="box">
-                <div class="results">Computer Wins:</div>
-                <div id="computerWins_container"></div>
-            </div>
-            <div class="box">
-                <div class="results">Game Draw:</div>
-                <div id="gameDraw_container"></div>
+
+            <div class="game_pannel">
+                <button class="game_button rock" value="rock">
+                    <i class="fa-solid fa-hand-back-fist"></i>
+                </button>
+                <button class="game_button paper" value="paper">
+                    <i class="fa-solid fa-hand"></i>
+                </button>
+                <button class="game_button scissors" value="scissors">
+                    <i class="fa-solid fa-hand-peace"></i>
+                </button>
             </div>
         </div>
+    </main>
+
+    <footer>
+        Copyright &#169;
+        <script>document.write(new Date().getFullYear())</script>
+        <a href="https://github.com/ivan-s-s">&nbsp;IvanS <i class="fa-brands fa-github"></i></a>
+    </footer>
+    <div class="container_start">
+        <button class="start">Start</button>
     </div>
-    <script src="script.js"></script>
+    <div class="overlay_bg"></div>
+    <audio class="sound" src="./sounds/switch-light-04-82204.wav"></audio>
 </body>
 
 </html>
