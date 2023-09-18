@@ -51,25 +51,43 @@ function playRound(player, computer) {
     }
 }
 
-function getIcon(pic) {
-    switch (pic) {
+const computerShow = document.getElementById('computer_choice');
+const playerShow = document.getElementById('player_choice');
+
+function getIcon(playerPic, computerPic) {
+    switch (playerPic) {
         case 'rock':
-            return 'rock'
+            playerShow.innerHTML = '<i class="fa-solid fa-hand-back-fist">'
+            break
         case 'paper':
-            return '<i class="fa-solid fa-hand"></i>'
+            playerShow.innerHTML = '<i class="fa-solid fa-hand"></i>'
+            break
         case 'scissors':
-            return '<i class="fa-solid fa-hand-peace"></i>'
+            playerShow.innerHTML = '<i class="fa-solid fa-hand-peace"></i>'
+            break
+    }
+
+    switch (computerPic) {
+        case 'rock':
+            computerShow.innerHTML = '<i class="fa-solid fa-hand-back-fist">'
+            break
+        case 'paper':
+            computerShow.innerHTML = '<i class="fa-solid fa-hand"></i>'
+            break
+        case 'scissors':
+            computerShow.innerHTML = '<i class="fa-solid fa-hand-peace"></i>'
+            break
     }
 }
 
 
 function game(playerChoice) {
-    const computerShow = document.querySelector('computer_choice');
+
     const computerSelection = getComputerChoice();
 
     playRound(playerChoice, computerSelection)
+    getIcon(playerChoice, computerSelection)
 
-    computerShow.innerHTML = getIcon(computerSelection);
     console.clear()
     console.log(`Round: %c${round}`, 'background-color: lightblue;font-size:18px;')
     console.log(`Wins: %c${wins}`, 'background-color: lightgreen;font-size:18px;')
