@@ -70,15 +70,14 @@ main {
 
 .container_game {
     display: flex;
-    flex: 1;
     width: 800px;
-    margin: auto;
+    margin: 20px auto 20px;
     flex-direction: column;
 }
 
 .rounds {
     text-align: center;
-    font-size: 36px;
+    font-size: 28px;
     padding: 10px;
     color: var(--dark-color);
 }
@@ -99,6 +98,7 @@ main {
     width: 150px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .player_score,
@@ -127,12 +127,11 @@ main {
 }
 
 .game_pannel {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 32px;
+    margin-top: 50px;
 }
 
 .game_button {
@@ -226,4 +225,114 @@ footer {
     border-radius: 15px;
     font-size: 36px;
     font-family: var(--font-family-main);
+}
+
+@media screen and (max-width: 1100px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .box {
+        margin-top: 56px;
+    }
+
+    .rounds {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .container_game {
+        width: 400px;
+        margin: auto;
+    }
+
+    .box {
+        width: 120px;
+        height: 120px;
+        font-size: 50px;
+    }
+
+    .big {
+        font-size: 60px;
+    }
+
+    .game_button {
+        width: 70px;
+        height: 70px;
+    }
+
+    .showTablo {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .container_game {
+        margin: 50px auto;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .player_card,
+    .computer_card {
+        width: 120px;
+    }
+
+    .player_score,
+    .computer_score {
+        font-size: 14px;
+        color: var(--dark-color)
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .box {
+        width: 80px;
+        height: 80px;
+    }
+
+    .big {
+        font-size: 50px;
+    }
+
+    footer {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .player,
+    .computer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .computer {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container_game {
+        width: 350px;
+        margin: auto;
+    }
+
+    .game_pannel {
+        margin-top: 20px;
+    }
 }
