@@ -25,7 +25,7 @@
 
                 <div class="player">
                     <div class="player_card">
-                        <div class="box big"><i class="fa-regular fa-user"></i></i></div>
+                        <div class="box big" id="player_icon"><i class="fa-regular fa-user"></i></i></div>
                         <div class="player_score"></div>
                     </div>
                     <div class="box player_choice" id="player_choice"><i class="fa-solid fa-question"></i></div>
@@ -34,23 +34,32 @@
                 <div class="computer">
                     <div class="box computer_choice" id="computer_choice"><i class="fa-solid fa-question"></i></div>
                     <div class="computer_card">
-                        <div class="box big"><i class="fa-solid fa-robot"></i></i></div>
+                        <div class="box big" id="computer_icon"><i class="fa-solid fa-robot"></i></i></div>
                         <div class="computer_score"></div>
                     </div>
 
                 </div>
             </div>
 
+
+
             <div class="game_pannel">
-                <button class="game_button rock" value="rock">
-                    <i class="fa-solid fa-hand-back-fist"></i>
-                </button>
-                <button class="game_button paper" value="paper">
-                    <i class="fa-solid fa-hand"></i>
-                </button>
-                <button class="game_button scissors" value="scissors">
-                    <i class="fa-solid fa-hand-peace"></i>
-                </button>
+                <div class="showTablo show">choose!</div>
+                <div>
+                    <button class="game_button rock" value="rock">
+                        <i class="fa-solid fa-hand-back-fist"></i>
+                    </button>
+                    <button class="game_button paper" value="paper">
+                        <i class="fa-solid fa-hand"></i>
+                    </button>
+                    <button class="game_button scissors" value="scissors">
+                        <i class="fa-solid fa-hand-peace"></i>
+                    </button>
+                    <button class="game_button restart" value="restart">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+
             </div>
         </div>
     </main>
@@ -64,7 +73,8 @@
         <button class="start">Start</button>
     </div>
     <div class="overlay_bg"></div>
-    <audio class="sound" src="./sounds/switch-light-04-82204.wav"></audio>
+    <audio class="sound" src="./sounds/click.wav"></audio>
+    <audio class="click" src="./sounds/mouse-click.wav"></audio>
 </body>
 
 </html>
