@@ -27,6 +27,7 @@ const playerShow = document.getElementById('player_choice');
 
 /* Start Game */
 startBtn.addEventListener('mousedown', () => {
+    click.currentTime = 0.07;
     click.play();
 })
 startBtn.addEventListener('click', () => {
@@ -60,6 +61,7 @@ function getComputerChoice() {
 const arr = [rockBtn, paperBtn, scissorsBtn, restartBtn];
 arr.forEach((button) => {
     button.addEventListener('mousedown', () => {
+        audio.currentTime = 0.02;
         audio.play();
     })
 })
